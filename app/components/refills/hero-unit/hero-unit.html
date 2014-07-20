@@ -1,0 +1,27 @@
+<template>
+  <div class="hero">
+    <div class="hero-inner">
+      <a href="" class="hero-logo"><img src="https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png" alt=""></a>
+      <div class="hero-copy">
+        <h1>Short description of Product</h1>
+        <p>A few reasons why this product is worth using, who is it for and why do they need it.</p>  
+      </div>
+      <button>Learn More</button>
+    </div>
+  </div>
+</template>
+<script>
+  // See the Polymer docs for an explanation of _currentScript
+  // http://www.polymer-project.org/platform/html-imports.html#other-notes
+  var owner = document.currentScript.ownerDocument;
+  var tmpl = owner.querySelector('template');
+
+  var HeroUnitProto = Object.create(HTMLElement.prototype);
+  HeroUnitProto.createdCallback = function() {
+    this.appendChild(document.importNode(tmpl.content, true));
+  };
+
+  var HeroUnit = document.registerElement('hero-unit', {
+    prototype: HeroUnitProto
+  });
+</script>
